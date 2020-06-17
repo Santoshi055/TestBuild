@@ -17,7 +17,7 @@ pipeline {
                bat "msbuild ./TestBuild/TestBuild.csproj"
              echo "Entered into Build"
         }
-      }*/
+      }
        stage('Build') {
       steps {
         script {
@@ -25,7 +25,7 @@ pipeline {
           bat "${msbuild} SimpleWindowsProject.sln"
             } 
          } 
-      } 
+      } */
     }
      
 }
