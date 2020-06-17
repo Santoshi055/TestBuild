@@ -5,7 +5,7 @@ pipeline {
    }
     stages {
                 
-      stage('Build') {
+      /*stage('Build') {
          steps {
              bat 'dir'
            	 // bat 'C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe TestBuild.sln /tv:15.0 /p:Configuration=Release /t:Rebuild'
@@ -17,7 +17,15 @@ pipeline {
                bat "msbuild ./TestBuild/TestBuild.csproj"
              echo "Entered into Build"
         }
-      }
+      }*/
+       stage('Build') {
+      steps {
+        script {
+          def msbuild = tool name: 'MSBuild', type: 'hudson.plugins.msbuild.MsBuildInstallation'
+          bat "${msbuild} SimpleWindowsProject.sln"
+            } 
+         } 
+      } 
     }
      
 }
