@@ -36,3 +36,4 @@ def notifyStarted() {
       recipientProviders: [[$class: 'DevelopersRecipientProvider']]
     )
 }
+}
