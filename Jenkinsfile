@@ -2,7 +2,6 @@ pipeline {
    agent any
    environment{
       path="C:\\Windows\\System32"
-      EMAIL_TO = 'sravani055@gmail.com'
    }
     
     stages {
@@ -22,9 +21,7 @@ pipeline {
     }
 post {
         always {
-            emailext body: 'Check console output at $BUILD_URL to view the results.', 
-                    to: "${EMAIL_TO}", 
-                    subject: 'Jenkins build is back to normal: $PROJECT_NAME - #$BUILD_NUMBER'
+           emailext body: 'Check console output at $BUILD_URL to view the results.', recipientProviders: [developers()], subject: 'Jenkins build is back to normal: $PROJECT_NAME - #$BUILD_NUMBER', to: 'sravani055@gmail.com'
         }
     }
     
