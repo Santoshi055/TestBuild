@@ -26,7 +26,7 @@ pipeline {
              fileOperations([folderCopyOperation(destinationFolderPath: '\\Predeployment\\TestBuild',
              sourceFolderPath: '\\TestBuild\\TestBuild\\bin\\Release')])
               fileOperations([fileZipOperation('Predeployment')])
-              fileOperations([fileZipOperation('ServerSendMessage\\TestBuild\\TestBuild\\bin\\Release'), fileRenameOperation(destination: 'CPSendMessage-${BUILD_NUMBER}.zip', source: 'Release.zip')])
+             // fileOperations([fileZipOperation('ServerSendMessage\\TestBuild\\TestBuild\\bin\\Release'), fileRenameOperation(destination: 'CPSendMessage-${BUILD_NUMBER}.zip', source: 'Release.zip')])
            }
         }
         stage('Archive artifacts'){
