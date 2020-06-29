@@ -9,6 +9,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <_PublishTargetUrl>C:\Users\sg185343\source\repos\TestBuild\TestBuild\bin\Release\Publish</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="bin/App_Web_webform1.aspx.cdcab7d2.dll">
+      <publishTime>06/29/2020 19:26:55</publishTime>
+    </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
     </File>
@@ -151,19 +154,22 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/24/2018 13:38:24</publishTime>
     </File>
     <File Include="bin/TestBuild.dll">
-      <publishTime>06/29/2020 12:41:10</publishTime>
+      <publishTime>06/29/2020 19:26:49</publishTime>
     </File>
     <File Include="bin/TestBuild.pdb">
-      <publishTime>06/29/2020 12:41:10</publishTime>
+      <publishTime>06/29/2020 19:26:49</publishTime>
+    </File>
+    <File Include="bin/webform1.aspx.cdcab7d2.compiled">
+      <publishTime>06/29/2020 19:26:55</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>06/29/2020 12:41:11</publishTime>
+      <publishTime>06/29/2020 19:26:51</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/29/2020 12:41:11</publishTime>
+      <publishTime>06/29/2020 19:26:50</publishTime>
     </File>
     <File Include="WebForm1.aspx">
-      <publishTime>06/17/2020 14:27:23</publishTime>
+      <publishTime>06/29/2020 19:26:55</publishTime>
     </File>
   </ItemGroup>
 </Project>
