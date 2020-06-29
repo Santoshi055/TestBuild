@@ -8,7 +8,7 @@ pipeline {
                 
        stage('Build') {
          steps {
-            bat 'C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe TestBuild.sln /p:VisualStudioVersion=10.0 /T:Clean /p:Configuration=Release /p:OutputPath='obj/Release' /p:PrecompileBeforePublish=true /t:Rebuild /p:PublishProfile=FolderProfile'
+            bat 'C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe TestBuild.sln /p:VisualStudioVersion=10.0 /T:Clean /p:Configuration=Release /p:OutputPath="obj/Release" /p:PrecompileBeforePublish=true /t:Rebuild /p:PublishProfile=FolderProfile'
             // bat 'C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe TestBuild.sln /p:VisualStudioVersion=10.0 /p:Configuration=Release /m:5 /t:Rebuild'
             // bat 'C:/Program Files (x86)/Microsoft Visual Studio/2017/BuildTools/MSBuild/15.0/Bin/MSBuild.exe TestBuild.sln /p:VisualStudioVersion=10.0 /p:Configuration=Release /t:Rebuild'
              //bat  """ "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\BuildTools\\MSBuild\\15.0\\Bin\\MSBuild.exe" Demo_v2.sln /p:Configuration=Release /t:Rebuild """
