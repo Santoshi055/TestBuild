@@ -21,7 +21,8 @@ pipeline {
     }
 post {
         always {
-           emailext body: 'Check console output at $BUILD_URL to view the results.', subject: 'Jenkins build is back to normal: $PROJECT_NAME - #$BUILD_NUMBER',to:'sravani055@gmail.com,ravikiran.geddam@gmail.com'
+           //emailext body: 'Check console output at $BUILD_URL to view the results.', subject: 'Jenkins build is back to normal: $PROJECT_NAME - #$BUILD_NUMBER',to:'sravani055@gmail.com,ravikiran.geddam@gmail.com'
+           archiveArtifacts artifacts: '.zip', followSymlinks: false, onlyIfSuccessful: true
         }
     }
     
