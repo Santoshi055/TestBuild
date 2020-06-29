@@ -21,7 +21,7 @@ pipeline {
         stage("Prepare artifacts"){
            steps{
               fileOperations([fileDeleteOperation(excludes: '', includes: '**/*.pdb'), 
-                              fileCreateOperation(fileContent: '', fileName: 'Predeployment\\TestBuild'),
+                              fileCreateOperation(fileContent: '', fileName: 'Predeployment'),
                               folderCopyOperation(destinationFolderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild\\Predeployment\\TestBuild', sourceFolderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild\\TestBuild\\bin\\Release'), 
                               fileZipOperation(folderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild\\Predeployment', outputFolderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild')])
               }
