@@ -19,7 +19,9 @@ pipeline {
         }
      }
         stage('Archive artifacts'){
+           steps{
           archiveArtifacts '*.zip'
+           }
      }
     }
 /*post {
