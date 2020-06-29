@@ -18,7 +18,7 @@ pipeline {
 
         }
      }
-        stage("Archive artifacts"){
+        stage('Archive artifacts'){
           archiveArtifacts '*.zip'
      }
     }
