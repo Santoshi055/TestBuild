@@ -20,14 +20,11 @@ pipeline {
      }
         stage("Prepare artifacts"){
            steps{
-             fileOperations([fileDeleteOperation(excludes: '', includes: '**/*.pdb')])
-             //ServerAncillary
-             fileOperations([folderCreateOperation('\\Predeployment\\TestBuild')])
-             fileOperations([folderCopyOperation(destinationFolderPath: '\\Predeployment\\TestBuild',
-             sourceFolderPath: '\\TestBuild\\TestBuild\\bin\\Release')])
-              fileOperations([fileZipOperation('Predeployment')])
-             // fileOperations([fileZipOperation('ServerSendMessage\\TestBuild\\TestBuild\\bin\\Release'), fileRenameOperation(destination: 'CPSendMessage-${BUILD_NUMBER}.zip', source: 'Release.zip')])
-           }
+              fileOperations([fileDeleteOperation(excludes: '', includes: '**/*.pdb'), 
+                              fileCreateOperation(fileContent: 'Predeployment\\TestBuild', fileName: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild')]),
+                              folderCopyOperation(destinationFolderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild\\Predeployment\\TestBuild', sourceFolderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild\\TestBuild\\bin\\Release'), 
+                              fileZipOperation(folderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild\\Predeployment', outputFolderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild')
+              }
         }
         stage('Archive artifacts'){
            steps{
