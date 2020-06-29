@@ -18,6 +18,17 @@ pipeline {
 
         }
      }
+        stage("Prepare artifacts"){
+           steps{
+             fileOperations([fileDeleteOperation(excludes: '', includes: '**/*.pdb')])
+             //ServerAncillary
+             fileOperations([folderCreateOperation('\\Predeployment\\TestBuild')])
+             fileOperations([folderCopyOperation(destinationFolderPath: '\\Predeployment\\TestBuild',
+             sourceFolderPath: '\\TestBuild\\TestBuild\\bin\\Release')])
+              fileOperations([fileZipOperation('Predeployment')])
+              fileOperations([fileZipOperation('ServerSendMessage\\TestBuild\\TestBuild\\bin\\Release'), fileRenameOperation(destination: 'CPSendMessage-${BUILD_NUMBER}.zip', source: 'Release.zip')])
+           }
+        }
         stage('Archive artifacts'){
            steps{
           archiveArtifacts '*.zip'
