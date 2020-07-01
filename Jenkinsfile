@@ -31,7 +31,7 @@ pipeline {
         }
         stage('Archive artifacts'){
            steps{
-          archiveArtifacts 'publish.zip'
+          archiveArtifacts 'Publish.zip'
            }
      }
     }
