@@ -22,7 +22,8 @@ pipeline {
         stage("Prepare artifacts"){
            steps{
               
-            fileOperations([fileDeleteOperation(excludes: '', includes: '**/*.pdb'),[fileDeleteOperation(excludes: '', includes: '**/*.config'), 
+            fileOperations([fileDeleteOperation(excludes: '', includes: '**/*.pdb'),
+                            fileDeleteOperation(excludes: '', includes: '**/*.config'), 
                 folderCreateOperation('C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild\\Publish),
                 folderCopyOperation(destinationFolderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild\\Publish' ,sourceFolderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild\\TestBuild\\bin\\Release'), 
                 fileZipOperation(folderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild\\Publish', outputFolderPath: 'C:\\Windows\\System32\\config\\systemprofile\\AppData\\Local\\Jenkins.jenkins\\workspace\\TestBuild')])
