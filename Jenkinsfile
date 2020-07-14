@@ -34,6 +34,11 @@ pipeline {
           archiveArtifacts 'Publish.zip'
            }
      }
+       stage('Send artifacts over FTP'){
+          steps{
+             ftpPublisher alwaysPublishFromMaster: false, continueOnError: false, failOnError: false, publishers: [[configName: 'My FTPServer', transfers: [[asciiMode: false, cleanRemote: false, excludes: '', flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '']], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false]]
+          }
+       }
     }
 /*post {
         always {
