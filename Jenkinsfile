@@ -34,20 +34,20 @@ pipeline {
           archiveArtifacts 'Publish.zip'
            }
         }
-       stage('Send artifacts'){
+       stage('Upload artifacts'){
           steps{
-             rtUpload (
-                serverId: 'Artifactory-Version-4.15.0',
-                spec: '''{
-                      "files": [
-                        {
-                          "pattern": "**/*.zip",
-                          "target": "Jenkins-integration/TestArtifact"
-                        }
-                     ]
-                }''',
-
-            )
+            def server = Artifactory.server 'Artifactory-Version-4.15.0',
+               server.bypassProxy = true,
+               def uploadSpec = """{
+                 "files": [
+                   {
+                     "pattern": "bazinga/*froggy*.zip",
+                     "target": "bazinga-repo/froggy-files/"
+                   }
+                ]
+               }"""
+               server.upload spec: uploadSpec,
+               server.upload spec: uploadSpec, failNoOp: true
           }
        }
     }
