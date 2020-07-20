@@ -45,7 +45,7 @@ pipeline {
                        "target": "Jenkins-integration/"
                      }
                   ]
-             }''',
+             }'''
          )
         }
       }
