@@ -34,6 +34,22 @@ pipeline {
           archiveArtifacts 'Publish.zip'
            }
         }
+       stage('Send artifacts'){
+          steps{
+             rtUpload (
+                serverId: 'Artifactory-Version-4.15.0',
+                spec: '''{
+                      "files": [
+                        {
+                          "pattern": "**/*.zip",
+                          "target": "Jenkins-integration/TestArtifact"
+                        }
+                     ]
+                }''',
+
+            )
+          }
+       }
     }
 /*post {
         always {
