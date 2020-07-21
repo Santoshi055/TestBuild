@@ -34,19 +34,22 @@ pipeline {
           archiveArtifacts 'Publish.zip'
            }
         }
-    }
-    rtUpload (
-             serverId: 'Artifactory-Version-4.15.0',
-             spec: '''{
-                   "files": [
-                     {
-                       "pattern": "**/*.zip",
-                       "target": "Jenkins-integration/"
-                     }
-                  ]
-             }'''
-         )
-        
+        stage ('Upload file') {
+            steps {
+                rtUpload (
+                    serverId: 'Artifactory-Version-4.15.0', // Obtain an Artifactory server instance, defined in Jenkins --> Manage:
+                    spec: """{
+                            "files": [
+                                    {
+                                        "pattern": "**/*.zip",
+                                        "target": "Jenkins-integration/"
+                                    }
+                                ]
+                            }"""
+                )
+            }
+        }
+    }        
     
 /*post {
         always {
