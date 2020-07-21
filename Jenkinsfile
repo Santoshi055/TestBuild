@@ -34,7 +34,8 @@ pipeline {
           archiveArtifacts 'Publish.zip'
            }
         }
-          rtUpload (
+    }
+    rtUpload (
              serverId: 'Artifactory-Version-4.15.0',
              spec: '''{
                    "files": [
