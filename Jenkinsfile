@@ -41,7 +41,7 @@ pipeline {
                     spec: """{
                             "files": [
                                     {
-                                        "pattern": "**/*.zip",
+                                        "pattern": "Publish.zip",
                                         "target": "Jenkins-integration/"
                                     }
                                 ]
