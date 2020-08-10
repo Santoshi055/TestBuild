@@ -8,7 +8,7 @@ pipeline {
                 
        stage('Build') {
          steps {
-            bat 'C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe TestBuild.csproj.user /p:VisualStudioVersion=10.0 /T:Clean /p:Configuration=Release /p:OutputPath="obj/Release" /p:PrecompileBeforePublish=true /t:Rebuild /p:PublishProfile=FolderProfile'
+            bat 'C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319\\MSBuild.exe TestBuild.csproj /p:VisualStudioVersion=10.0 /T:Clean /p:Configuration=Release /p:OutputPath="obj/Release" /p:PrecompileBeforePublish=true /t:Rebuild /p:PublishProfile=FolderProfile'
             echo "Entered into Build"
 
         }
